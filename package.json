@@ -1,0 +1,42 @@
+{
+  "name": "mock",
+  "version": "0.0.1",
+  "description": "Mock data Generator, uses a Schema (similar to Mongoose Schema but more extensive), it will use choice.js to generate more meaningful random data (human like) as oppose to random characters",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valtido/mock.git"
+  },
+  "keywords": [
+    "Mock",
+    "data",
+    "generate",
+    "javascript",
+    "schema",
+    "choicejs"
+  ],
+  "author": "Valtid Caushi valtido@hotmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/valtido/mock/issues"
+  },
+  "homepage": "https://github.com/valtido/mock",
+  "scripts": {
+    "build": "coffee -b --compile --output lib/ src/",
+    "test": "npm build && mocha"
+  },
+  "dependencies": {
+    "chance": "^0.5.9",
+    "underscore": "^1.6.0"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "coffee-script": "^1.7.1",
+    "mocha": "^1.1.0",
+    "should": "^4.0.4",
+    "which": "^1.0.5"
+  }
+}
