@@ -7,6 +7,7 @@ describe "Generator: ", ->
 				age : 'Person.Age'
 			data = new Generator userConfig, userSchema, 1
 			age = data[0].age
+
 			expect(age).not.toBeUndefined()
 			expect(age).toEqual(jasmine.any(Number))
 			expect(age).toBeGreaterThan userConfig.age.min 
@@ -16,11 +17,16 @@ describe "Generator: ", ->
 		it "Should generate a random name realistic name",->
 			userConfig = 
 				name : 
-					first: 'Person.First'
+					first: {}
+					last: {}
 			userSchema = new Schema
 				name : 
 					first: 'Person.First'
+					last: 'Person.Last'
 			data = new Generator userConfig, userSchema, 1
 			row = data[0]
-			console.log(row.name)
+			length = "#{row.name.first} #{row.name.last}".length
+
 			expect(row.name.first).toEqual(jasmine.any(String))
+			expect(row.name.last).toEqual(jasmine.any(String))
+			expect(length).toBeGreaterThan(2)

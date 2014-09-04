@@ -16,7 +16,8 @@ class Generator
 						return self.generate(item, schema[key], records)
 					when "person.first" then data[key] = do ->
 							return chance.first()
-						
+					when "person.last" then data[key] = do ->
+							return chance.last()
 					when "person.age" then data[key] = do ->
 							options = 
 								min: item.min
