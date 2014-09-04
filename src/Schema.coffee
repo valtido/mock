@@ -1,10 +1,3 @@
-root = exports ? this
-
-Chance = require 'chance'
-utils = require '../lib/coffee-utils'
-typeOf = require '../lib/typeOf'
-chance = new Chance(); 
-
 class Schema
 	constructor: (config) ->
 		if config
@@ -17,7 +10,7 @@ class Schema
 					else 
 						if @exists item
 							type = item
-							config[key] = utils.merge(@get_type(type) ,{type: type})
+							config[key] = merge(@get_type(type) ,{type: type})
 						else
 							throw "Schema Error: The String `#{item}` of `#{key}` is not a valid Schema type."
 				else if typeOf( item ) is "[object Object]"
@@ -28,7 +21,7 @@ class Schema
 						if not @exists type
 							throw "Schema Error: Invalid schema type #{item} of `#{key}`"
 						else
-							config[key] =  utils.merge(@get_type(type), item, {type: type}) 
+							config[key] =  merge(@get_type(type), item, {type: type}) 
 					else 
 						config[key] = new Schema(item)
 						# config[key].type = 'Schema'
@@ -73,10 +66,6 @@ class Schema
 			throw "Schema Error: You cannot use a parent schema type `#{str}`, be more specific e.g: `Person.Age`."
 			return false
 	
-	isEmpty: (obj) ->
-		for name of obj
-			return false
-		true
 
 	# *templates* take presidence, try to use chance.js if possible
 	#
@@ -101,5 +90,3 @@ class Schema
 		object : () ->
 		boolean: () ->    
 
-
-module.exports = Schema
