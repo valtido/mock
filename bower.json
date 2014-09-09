@@ -13,5 +13,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "chance": "~0.6.1",
+    "jquery": "2.1.0"
+  }
 }

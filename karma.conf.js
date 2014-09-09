@@ -15,8 +15,8 @@ module.exports = function(config) {
 
 		// list of files / patterns to load in the browser
 		files: [
-			// 'app.js',
-			// {pattern: 'bower_components/**/*.js', included: false},
+			{pattern: 'bower_components/jquery/dist/jquery.min.map', included: false},
+			{pattern: 'bower_components/jquery/dist/jquery.min.js', included: true},
 			{pattern: 'bower_components/chance/chance.js', included: true},
 			{pattern: 'src/**/*.coffee', included: true},
 			{pattern: 'src/**/*.js', included: true},
